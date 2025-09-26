@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MahasiswaController;
 
+
 Route::get('/pcr', function () {
     return 'Selamat Datang di Website Kampus PCR!';
 });
@@ -19,6 +20,9 @@ Route::get('/nim/{param1?}', function ($param1 = '') {
 });
 Route::get('/about', function () {
     return view('halaman-about');
+});
+Route::get('/', function () {
+    return view'Welcome';
 });
 
 
