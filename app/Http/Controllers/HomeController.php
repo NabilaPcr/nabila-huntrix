@@ -1,29 +1,22 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PegawaiController extends Controller
+class HomeController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $data['name'] = 'Nabila';
-        $tgl_lahir = date_create('2006-05-22');
-        $hari_ini = date_create();
-        $umur = date_diff($hari_ini, $tgl_lahir)->y;
-        $data['my_age'] = $umur . ' tahun';
-        $data['hobbies'] = ['Membaca', 'Bermain Game', 'Menulis', 'Bersepeda', 'Mendaki Gunung'];
-        $data['tgl_harus_wisuda'] = '2028-10-20';
-        $data['time_to_study_left'] = '1120 hari';
-        $data['cita_cita'] = ['Dapat pekerjaan sebelum lulus di perusahaan besar', 'Membanggakan ayah dan ibu'];
-        $data['current_semester'] = 3;
+        $data ['username']        = 'Heroku';
+    $data ['last_login']      = date('Y-m-d H:i:s');
+    $data ['list_pendidikan'] = ['SD','SMP','SMA','S1','S2','S3'];
+    return view('home', $data );
 
 
-        $data['study_message'] = ($data['current_semester'] < 3)
-            ? 'Masih Awal, Kejar TAK'
-            : 'Jangan Main-Main, Kurang-Kurangin Main Game!';
-
-        return view('pegawai', $data);
     }
 
     /**
@@ -74,4 +67,3 @@ class PegawaiController extends Controller
         //
     }
 }
-
