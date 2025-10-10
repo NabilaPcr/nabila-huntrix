@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'PlaywriteUSModern-VariableFont_wght';
+    src: url('assets/fonts/PlaywriteUSModern-VariableFont_wght.ttf');
+}
+
+.font-baru{
+    font-family: 'PlaywriteUSModern-VariableFont_wght';
+}

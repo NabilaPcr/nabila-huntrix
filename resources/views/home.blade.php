@@ -8,22 +8,46 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
     <style>
         body {
             font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            /* Aurora light */
+            color: #2d2d34;
+            /* Aurora dark */
+        }
+
+        .navbar {
+            background-color: #6b5b95;
+            /* Aurora purple */
+            box-shadow: 0 4px 6px rgba(107, 91, 149, 0.3);
         }
 
         .navbar-brand {
             font-weight: bold;
+            color: #f4f4f9;
+            /* light */
         }
 
-        .navbar {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: #d64161;
+            /* Aurora pink */
+        }
+
+        .navbar-nav .nav-link {
+            color: #f4f4f9;
+            /* light */
+            font-weight: 500;
         }
 
         .hero-section {
-            background-color: #3187e9;
-            color: white;
+            background: linear-gradient(135deg, #00a8e8, #8ac6d1);
+            /* Aurora blue to green */
+            color: #f4f4f9;
+            /* light */
             padding: 50px 0;
             text-align: center;
         }
@@ -34,20 +58,92 @@
 
         .card {
             margin-top: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(107, 91, 149, 0.1);
+            border-radius: 8px;
         }
 
         .footer {
             margin-top: 50px;
             padding: 20px 0;
-            background-color: #f8f9fa;
+            background-color: #6b5b95;
+            /* Aurora purple */
             text-align: center;
+            color: #f4f4f9;
+            /* light */
         }
 
         .footer p {
             margin: 0;
             font-size: 0.9rem;
-            color: #6c757d;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background-color: #d64161;
+            /* Aurora pink */
+            border-color: #d64161;
+        }
+
+        .btn-primary:hover {
+            background-color: #b13045;
+            border-color: #b13045;
+        }
+
+        .btn-outline-primary {
+            color: #d64161;
+            border-color: #d64161;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: #d64161;
+            color: #f4f4f9;
+        }
+
+        .btn-success {
+            background-color: #8ac6d1;
+            /* Aurora green */
+            border-color: #8ac6d1;
+        }
+
+        .btn-success:hover {
+            background-color: #6fa9b5;
+            border-color: #6fa9b5;
+        }
+
+        .btn-danger {
+            background-color: #d64161;
+            border-color: #d64161;
+        }
+
+        .btn-danger:hover {
+            background-color: #b13045;
+            border-color: #b13045;
+        }
+
+        /* Badges */
+        .badge.text-bg-primary {
+            background-color: #6b5b95;
+        }
+
+        .badge.text-bg-success {
+            background-color: #8ac6d1;
+            color: #2d2d34;
+        }
+
+        .badge.text-bg-danger {
+            background-color: #d64161;
+        }
+
+        /* Accordion */
+        .accordion-button {
+            background-color: #f4f4f9;
+            color: #2d2d34;
+            font-weight: 600;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #6b5b95;
+            color: #f4f4f9;
         }
     </style>
 </head>
@@ -56,6 +152,8 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
+            <img src="{{ asset('assets/images/Profile_Picture_Ruan_Mei_-_Academia.webp') }}" alt="Logo"
+                style="height:100px; width:100; margin-right:10px;">
             <a class="navbar-brand" href="#">My Laravel App</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +181,7 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="display-6 mb-2">{{ $username }}</h1>
+            <h1 class="display-6 mb-2 font-baru">{{ $username }}</h1>
             <p class="lead mb-0">{{ $last_login }}</p>
         </div>
     </section>
@@ -184,7 +282,8 @@
                         <form action="" method="POST">
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="nama" value="{{ old('nama') }}">
+                                <input type="text" class="form-control" name="nama"
+                                    value="{{ old('nama') }}">
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
