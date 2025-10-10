@@ -49,8 +49,12 @@ class QuestionController extends Controller
         $data['email'] = $request->email;
         $data['pertanyaan'] = $request->pertanyaan;
 
-        return view('home-question-respon', $data);
+        // return view('home-question-respon', $data);
         /*menampilkan view secara langsung tanpa melakukan perpindahan halaman*/
+
+        return redirect()->route('home')->with('info', 'Selamat, Pertanyaan kamu sudah masuk!');
+        /*info, itu adalah wadah yg menampung informasi "selamat, kamu lulus"*/
+
 
     }
 
