@@ -50,7 +50,7 @@ class QuestionController extends Controller
         $data['pertanyaan'] = $request->pertanyaan;
 
         return view('home-question-respon', $data);
-
+        /*menampilkan view secara langsung tanpa melakukan perpindahan halaman*/
 
     }
 
