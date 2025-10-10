@@ -42,5 +42,5 @@ Route::get('/pegawai',[PegawaiController::class,'index']);
 Route::post('question/store', [QuestionController::class, 'store'])
 		->name('question.store');
 Route::get('dashboard', [DashboardController::class, 'index'])
-        ->nama('dashboard');
+        ->name('dashboard');
 
