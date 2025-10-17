@@ -212,7 +212,7 @@
 														<small class="text-danger">a few moments ago</small>
 													</div>
 												</div>
-												<p class="font-small mt-1 mb-0">Added you to an event "Project stand-up"
+												<p class="font-small mt-1 mb-0">Added you to an event "Project stand-upp"
 													tomorrow at 12:30 AM.
 												</p>
 											</div>
