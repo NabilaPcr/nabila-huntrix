@@ -36,7 +36,7 @@ Route::get('/about', function () {
     return view('halaman-about');
 });
 Route ::get('/home',[HomeController::class,'index'])
-        ->name ('home');
+    ->name ('home');
 
 Route::get('/pegawai',[PegawaiController::class,'index']);
 
