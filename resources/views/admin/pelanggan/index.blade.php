@@ -37,7 +37,7 @@
                     <div class="table-responsive">
                         {{-- dibawah ini untuk menyeleksi gender --}}
                         <form method="GET"
-                            action="{{ route('pelanggan.index') }}
+                            action="{{ route('pelanggan.index') }}"
                             class="mb-3">
                             <div class="row">
                                 <div class="col-md-2">
@@ -81,7 +81,6 @@
                             <tbody>
                                 @foreach ($dataPelanggan as $item)
                                     <tr>
-
                                         <td>{{ $item->first_name }}</td>
                                         <td>{{ $item->last_name }}</td>
                                         <td>{{ $item->birthday }}</td>
@@ -89,10 +88,24 @@
                                         <td>{{ $item->email }}</td>
                                         <td>{{ $item->phone }}</td>
                                         <td>
-                                            {{-- ini untuk edit --}}
+                                            {{-- Tombol Detail --}}
+                                            <a href="{{ route('pelanggan.show', $item->pelanggan_id) }}"
+                                               class="btn btn-primary btn-sm">
+                                                <svg class="icon icon-xs me-1" data-slot="icon" fill="none"
+                                                    stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                </svg>
+                                                Detail
+                                            </a>
+
+                                            {{-- Tombol Edit --}}
                                             <a href="{{ route('pelanggan.edit', $item->pelanggan_id) }}"
                                                 class="btn btn-info btn-sm">
-                                                <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
+                                                <svg class="icon icon-xs me-1" data-slot="icon" fill="none"
                                                     stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
                                                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -102,13 +115,14 @@
                                                 Edit
                                             </a>
 
-                                            {{-- ini untuk delete --}}
+                                            {{-- Tombol Delete --}}
                                             <form action="{{ route('pelanggan.destroy', $item->pelanggan_id) }}"
                                                 method="POST" style="display:inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                        onclick="return confirm('Apakah Anda yakin ingin menghapus pelanggan ini?')">
+                                                    <svg class="icon icon-xs me-1" data-slot="icon" fill="none"
                                                         stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
                                                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -118,14 +132,9 @@
                                                     Hapus
                                                 </button>
                                             </form>
-
-
                                         </td>
                                     </tr>
                                 @endforeach
-
-
-
                             </tbody>
                         </table>
                         <div class="mt-3">

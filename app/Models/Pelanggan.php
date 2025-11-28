@@ -2,21 +2,31 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Pelanggan extends Model
 {
+    use HasFactory;
+
     protected $table      = 'pelanggan';
     protected $primaryKey = 'pelanggan_id';
+    public $incrementing = true;
+
     protected $fillable   = [
         'first_name',
         'last_name',
         'birthday',
         'gender',
         'email',
-        'phone',
+        'phone'
+     ];
 
-    ];
+    public function files()
+    {
+        return $this->hasMany(PelangganFile::class, 'pelanggan_id', 'pelanggan_id');
+    }
+
 
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
     {
@@ -27,7 +37,7 @@ class Pelanggan extends Model
         }
         return $query;
     }
-    
+
     public function scopeSearch($query, $request, array $columns)
     {
         if ($request->filled('search')) {

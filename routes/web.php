@@ -47,6 +47,9 @@ Route::get('/dashboard', [DashboardController:: class, 'index'])
     -> name('dashboard');
 
 Route::resource('pelanggan', PelangganController::class);
+Route::delete('pelanggan/files/{id}', [PelangganController::class, 'destroyFile'])
+    ->name('pelanggan.destroyFile');
+
 
 Route::resource('user', UserController::class);
 

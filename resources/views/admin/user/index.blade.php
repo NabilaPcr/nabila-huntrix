@@ -45,6 +45,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {{-- ini untuk profil --}}
                                     @forelse ($dataUser as $item)
                                         <tr>
                                             <td class="text-center">
@@ -64,6 +65,8 @@
                                             </td>
                                             <td class="align-middle">{{ $item->name }}</td>
                                             <td class="align-middle">{{ $item->email }}</td>
+
+
                                             <td class="align-middle">
                                                 {{-- Detail --}}
                                                 <a href="{{ route('user.show', $item->id) }}" class="btn btn-primary btn-sm">
